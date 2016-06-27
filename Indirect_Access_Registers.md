@@ -38,7 +38,7 @@ endclass
 ```
 
 中间层sequencer上的sequence item类型是uvm_reg_item，也即是寄存器的读或者写操作了，其是class。
-在test里，start translation sequence
+在test里，start translation sequence。
 ```verilog
 class my_test extends uvm_test;
   block_env env;
@@ -137,7 +137,7 @@ endclass
     end
 ```
 
-注意，reg_seqr没有对应的driver与之相连，所以要手动end_tr，否则sequence会卡住不动，因为没有consume掉这个transaction。可以参考代码uvm_reg_map.svh。
+注意，reg_seqr没有对应的driver与之相连，所以要手动end_tr，否则sequence在发出第一个包后，卡住不动，因为没有consume掉这个transaction。可以参考代码uvm_reg_map.svh。
 ```verilog
 task uvm_reg_map::do_write(uvm_reg_item rw);
   ...
