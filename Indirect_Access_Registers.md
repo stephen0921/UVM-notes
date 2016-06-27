@@ -48,6 +48,7 @@ class my_test extends uvm_test;
   endfunction
 endclass
 ```
+---
 ## 实际问题
 在我的实际应用中，是想把一个寄存器操作，转化为多个寄存器的读和写。这里，我把间接寄存器放在了一个独立的register map上(名为UnAddressedModules)，而不是default map。
 ```verilog
@@ -145,6 +146,6 @@ task uvm_reg_map::do_write(uvm_reg_item rw);
   rw.end_event.wait_on(); // 等待rw被consume掉
 endtask
 ```
-
+---
 ## 总结
   层次化的集成register model的方法，处理间接访问寄存器，可行有效，但要注意一些小细节，比如关于transaction生命周期的。
