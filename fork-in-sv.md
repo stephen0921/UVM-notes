@@ -12,6 +12,7 @@
 
 parent process不等待child process结束，就向下进行
 
+如下代码，实现某一个phase的最后动作，等待其他的组件都结束了该phase。
 ```verilog
 function void my_component::phase_ready_to_end(uvm_phase phase);
   if(!is_ok_to_end()) begin
